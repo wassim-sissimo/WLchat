@@ -11,4 +11,7 @@
   .left-user-png{
     @apply scale-[0.45] cursor-pointer
   }
+  .left-chat{
+    @apply py-2  border-b flex  items-center space-x-2 border-bColor cursor-pointer
+  }
 }

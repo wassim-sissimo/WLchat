@@ -42,8 +42,8 @@ export const useChatStore=create((set)=>({
         set(state=>({...State,userIsBlocked:!state.userIsBlocked}))
     },
 
-    openTheChat:()=>{
-        set(state=>({...state,chatOpen:!state.chatOpen}))
+    openTheChat:(state)=>{
+        set(current=>({...current,chatOpen:state}))
     }
 
 

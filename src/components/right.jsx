@@ -3,7 +3,7 @@ import { UserRight } from "./userRight"
 
 export const Right =()=>{
     return(
-        <div className="flex-[1]">
+        <div className="flex-[1] relative">
            <UserRight/>
            <RightSeting/>
         </div>

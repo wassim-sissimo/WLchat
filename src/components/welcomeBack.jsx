@@ -3,11 +3,12 @@ import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../firebaseConfig"
 import { useEffect, useState } from "react"
 import { useUserStore } from "../../public/zustand"
+import { useChatStore } from "../useChatStor"
 
 export const WelcomeBack=()=>{
     const [loading,setLoanding]=useState(false)
 
-  
+    const {openTheChat}=useChatStore()
 
     const handeleLogIn=async (e)=>{
         setLoanding(true)
@@ -24,6 +25,7 @@ export const WelcomeBack=()=>{
             toast.error("your cordenats are wrong or your account doesn't exist")
         }finally{
             setLoanding(false)
+            openTheChat(false)
         }
         
 

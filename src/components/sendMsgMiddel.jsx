@@ -114,9 +114,14 @@ export const SendMsgMiddel=()=>{
                     await updateDoc(usreChatsRef,{
                         chats:chats
                     })
+                    setSentImg({
+                        file:null,
+                        url:"",
+                    })
                     console.log("ur message is updated")
                 }
                 })
+                
                 
             }
          }
@@ -143,16 +148,16 @@ export const SendMsgMiddel=()=>{
         <div className="border-t border-bColor py-3 px-2 flex">
             <div className="flex">
                 <label htmlFor="img">
-                <img src="../public/img.png" alt="" className="scale-[0.45] cursor-pointer" />
+                <img src="./src/assets/imgs/img.png" alt="" className="scale-[0.45] cursor-pointer" />
                 </label>
                 
-                <input type="file"  className="hidden" id="img" onClick={handelImg}/>
-                <img src="../public/camera.png" alt="" className="scale-[0.45]" />
-                <img src="../public/mic.png" alt="" className="scale-[0.45]" />
+                <input type="file"  className="hidden" id="img" onChange={handelImg}/>
+                <img src="./src/assets/imgs/camera.png" alt="" className="scale-[0.45]" />
+                <img src="./src/assets/imgs/mic.png" alt="" className="scale-[0.45]" />
             </div>
             <input value={text} type="text" placeholder="type your msg .." className="flex-[1] px-2 rounded-lg bg-inbg text-white outline-none"  onChange={(e)=>{setText(e.target.value)}} />
             <div className="relative">
-                <img src="../public/emoji.png" alt=""  className="scale-[0.45] cursor-pointer" onClick={()=>{setEmojiOpen((current)=>!current)}}/>
+                <img src="./src/assets/imgs/emoji.png" alt=""  className="scale-[0.45] cursor-pointer" onClick={()=>{setEmojiOpen((current)=>!current)}}/>
                 <div className="absolute  bottom-[100%] right-0  ">
                  <EmojiPicker  open={emojiOpen} onEmojiClick={handelEmojiClick}/>
                 </div> 

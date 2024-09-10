@@ -5,13 +5,15 @@ import { toast } from "react-toastify"
 import { dataBase } from "../firebaseConfig"
 import { collection, doc,getDoc,getDocs,query,setDoc, where } from "firebase/firestore"
 import { Upload } from "../upload"
+import { useUserStore } from "../../public/zustand"
+import { useChatStore } from "../useChatStor"
 
 export const CreateAnAcount=()=>{
     const [profilePic,setProfilePic]=useState({
         file:null,
         url:""
     })
-
+    const {openTheChat}=useChatStore()
     const [loading,setLoading]=useState(false)
 
     const handelChange=(e)=>{
@@ -60,6 +62,7 @@ export const CreateAnAcount=()=>{
             toast.error(err.message)
         }finally{
             setLoading(false)
+            openTheChat(false)
             
         }
     }
@@ -67,7 +70,7 @@ export const CreateAnAcount=()=>{
         <div>
             <p className="capitalize text-white font-bold text-[22px] ">creat an account</p>
             <div className="flex">
-                <img src={profilePic.url || "/avatar.png"} alt=""  className="w-9 h-9 mr-5 object-cover rounded"/>
+                <img src={profilePic.url || "./src/assets/imgs/avatar.png"} alt=""  className="w-9 h-9 mr-5 object-cover rounded"/>
                 <label htmlFor="file" className="text-white underline cursor-pointer">pick a profil picure</label>
                 <input type="file"  id="file" className="hidden"  onChange={handelChange}/>
             </div>
