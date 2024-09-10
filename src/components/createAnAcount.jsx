@@ -7,6 +7,8 @@ import { collection, doc,getDoc,getDocs,query,setDoc, where } from "firebase/fir
 import { Upload } from "../upload"
 import { useUserStore } from "../../public/zustand"
 import { useChatStore } from "../useChatStor"
+import avatar from  "../assets/imgs/avatar.png"
+                    
 
 export const CreateAnAcount=()=>{
     const [profilePic,setProfilePic]=useState({
@@ -70,7 +72,7 @@ export const CreateAnAcount=()=>{
         <div>
             <p className="capitalize text-white font-bold text-[22px] ">creat an account</p>
             <div className="flex">
-                <img src={profilePic.url || "./src/assets/imgs/avatar.png"} alt=""  className="w-9 h-9 mr-5 object-cover rounded"/>
+                <img src={profilePic.url || avatar} alt=""  className="w-9 h-9 mr-5 object-cover rounded"/>
                 <label htmlFor="file" className="text-white underline cursor-pointer">pick a profil picure</label>
                 <input type="file"  id="file" className="hidden"  onChange={handelChange}/>
             </div>
