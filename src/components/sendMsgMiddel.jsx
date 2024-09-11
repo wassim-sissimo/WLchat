@@ -6,6 +6,10 @@ import { useChatStore } from "../useChatStor"
 import { useUserStore } from "../../public/zustand"
 import { toast } from "react-toastify"
 import { Upload } from "../upload"
+import img from "../assets/imgs/img.png"
+import camera from "../assets/imgs/camera.png"
+import mic from "../assets/imgs/mic.png"
+import emoji from "../assets/imgs/emoji.png"
 export const SendMsgMiddel=()=>{ 
     const [emojiOpen,setEmojiOpen]=useState(false)
     const [text,setText]=useState("")
@@ -148,16 +152,16 @@ export const SendMsgMiddel=()=>{
         <div className="border-t border-bColor py-3 px-2 flex">
             <div className="flex">
                 <label htmlFor="img">
-                <img src="./src/assets/imgs/img.png" alt="" className="scale-[0.45] cursor-pointer" />
+                <img src={img} alt="" className="scale-[0.45] cursor-pointer" />
                 </label>
                 
                 <input type="file"  className="hidden" id="img" onChange={handelImg}/>
-                <img src="./src/assets/imgs/camera.png" alt="" className="scale-[0.45]" />
-                <img src="./src/assets/imgs/mic.png" alt="" className="scale-[0.45]" />
+                <img src={camera} alt="" className="scale-[0.45]" />
+                <img src={mic} alt="" className="scale-[0.45]" />
             </div>
             <input value={text} type="text" placeholder="type your msg .." className="flex-[1] px-2 rounded-lg bg-inbg text-white outline-none"  onChange={(e)=>{setText(e.target.value)}} />
             <div className="relative">
-                <img src="./src/assets/imgs/emoji.png" alt=""  className="scale-[0.45] cursor-pointer" onClick={()=>{setEmojiOpen((current)=>!current)}}/>
+                <img src={emoji} alt=""  className="scale-[0.45] cursor-pointer" onClick={()=>{setEmojiOpen((current)=>!current)}}/>
                 <div className="absolute  bottom-[100%] right-0  ">
                  <EmojiPicker  open={emojiOpen} onEmojiClick={handelEmojiClick}/>
                 </div> 
