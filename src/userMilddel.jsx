@@ -1,11 +1,20 @@
 import { useChatStore } from "./useChatStor"
 import avatar from "./assets/imgs/avatar.png"
-import phone from "./assets/imgs/phone.png"
-import video from "./assets/imgs/video.png"
-import search from "./assets/imgs/search.png"
+
+import { ArrowLeft } from "lucide-react"
+import { Info } from "lucide-react"
+
 
 export const UserMiddel=()=>{
-    const {user}=useChatStore()
+    const {user,openTheChat,openTHeInfo}=useChatStore()
+   
+    const handelBack=()=>{
+        openTheChat(false)
+    }
+   const handelInfo=()=>{
+        openTHeInfo(true)
+        openTheChat(false)
+   }
     return(
         <div className="py-3 border-b border-bColor px-2 flex justify-between">
             <div className="flex space-x-4">
@@ -15,10 +24,11 @@ export const UserMiddel=()=>{
                     <p className="text-white font-light text-[13px]">Lorem ipsum, dolor sit</p>
                 </div>
             </div>
-            <div className="flex">
-                <img src={phone} alt=""  className="scale-[0.45]"/>
-                <img src={video} alt=""  className="scale-[0.45]"/>
-                <img src={search} alt="" className="scale-[0.45]"/>
+            <div className="flex items-center">
+                
+                <div onClick={handelBack}><ArrowLeft className="text-white cursor-pointer" /></div>
+                <div className="text-white mx-3 cursor-pointer" onClick={handelInfo} ><Info /></div>
+                
             </div>
         </div>
     )

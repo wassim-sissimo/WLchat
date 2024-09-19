@@ -8,7 +8,7 @@ import { useUserStore } from "../../public/zustand"
 
 export const    ChatMiddel=()=>{
     const scrollRef=useRef(null)
-    const {chatId,user}=useChatStore()
+    const {chatId,user,chatScrool}=useChatStore()
     const {currentUser}=useUserStore()
     const [chat,setChat]=useState()
 
@@ -16,7 +16,8 @@ export const    ChatMiddel=()=>{
 
     useEffect(()=>{
         scrollRef.current?.scrollIntoView({behavior:'smooth'})
-    },[])
+        console.log("scrooled")
+    },[chatScrool])
 
     useEffect(()=>{
         if( chatId!=null){

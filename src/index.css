@@ -14,4 +14,7 @@
   .left-chat{
     @apply py-2  border-b flex  items-center space-x-2 border-bColor cursor-pointer
   }
+  .test{
+    @apply xl:bg-green-800 lg:bg-green-500 md:bg-orange-600 sm:bg-red-500 xs:bg-red-800
+  }
 }

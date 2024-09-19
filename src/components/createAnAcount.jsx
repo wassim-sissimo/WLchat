@@ -15,7 +15,7 @@ export const CreateAnAcount=()=>{
         file:null,
         url:""
     })
-    const {openTheChat}=useChatStore()
+    const {openTheChat,openTHeInfo}=useChatStore()
     const [loading,setLoading]=useState(false)
 
     const handelChange=(e)=>{
@@ -65,6 +65,7 @@ export const CreateAnAcount=()=>{
         }finally{
             setLoading(false)
             openTheChat(false)
+            openTHeInfo(false)
             
         }
     }

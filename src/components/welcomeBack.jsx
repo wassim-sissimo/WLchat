@@ -8,7 +8,7 @@ import { useChatStore } from "../useChatStor"
 export const WelcomeBack=()=>{
     const [loading,setLoanding]=useState(false)
 
-    const {openTheChat}=useChatStore()
+    const {openTheChat,openTHeInfo}=useChatStore()
 
     const handeleLogIn=async (e)=>{
         setLoanding(true)
@@ -26,6 +26,7 @@ export const WelcomeBack=()=>{
         }finally{
             setLoanding(false)
             openTheChat(false)
+            openTHeInfo(false)
         }
         
 

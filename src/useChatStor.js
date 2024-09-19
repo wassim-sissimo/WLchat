@@ -9,6 +9,9 @@ export const useChatStore=create((set)=>({
     userIsBlocked:false,
     currentUserIsBlocked:false,
     chatOpen:false,
+    infoOpen:false,
+    chatScrool:false,
+   
     displayChat:(chatId,user)=>{
         const currentUser=useUserStore.getState().currentUser
         
@@ -37,14 +40,13 @@ export const useChatStore=create((set)=>({
 
         }
     },
-
-    changeBlock:()=>{
-        set(state=>({...State,userIsBlocked:!state.userIsBlocked}))
-    },
-
     openTheChat:(state)=>{
-        set(current=>({...current,chatOpen:state}))
+        set(current=>({...current,
+                        chatOpen:state,
+                        chatScrool:state
+                    }))
+    },
+    openTHeInfo:(state)=>{
+        set(now=>({...now,infoOpen:state}))
     }
-
-
 }))

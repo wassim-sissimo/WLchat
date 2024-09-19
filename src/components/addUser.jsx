@@ -5,7 +5,7 @@ import { toast } from "react-toastify"
 import { getDocs } from "firebase/firestore"
 import { useUserStore } from "../../public/zustand"
 
-export const AddUser=()=>{
+export const AddUser=({setAdd,add})=>{
     const {currentUser}=useUserStore()
     const [user,setUser]=useState("")
     const handelSearch=async(e)=>{
@@ -60,6 +60,8 @@ export const AddUser=()=>{
         }catch(err){
             console.log(err)
             toast.error(err)
+        }finally{
+            setAdd(false)
         }
     }
    

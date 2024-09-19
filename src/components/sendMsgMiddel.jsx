@@ -149,21 +149,20 @@ export const SendMsgMiddel=()=>{
         
     }
     return(
-        <div className="border-t border-bColor py-3 px-2 flex">
-            <div className="flex">
+        <div className="border-t border-bColor py-3 px-2 flex ">
+            <div className="flex ">
                 <label htmlFor="img">
                 <img src={img} alt="" className="scale-[0.45] cursor-pointer" />
                 </label>
                 
                 <input type="file"  className="hidden" id="img" onChange={handelImg}/>
-                <img src={camera} alt="" className="scale-[0.45]" />
-                <img src={mic} alt="" className="scale-[0.45]" />
+               
             </div>
-            <input value={text} type="text" placeholder="type your msg .." className="flex-[1] px-2 rounded-lg bg-inbg text-white outline-none"  onChange={(e)=>{setText(e.target.value)}} />
+            <input value={text} type="text" placeholder="type your msg .." className="flex-[1] px-2 rounded-lg bg-inbg mr-6 text-white outline-none"  onChange={(e)=>{setText(e.target.value)}} />
             <div className="relative">
-                <img src={emoji} alt=""  className="scale-[0.45] cursor-pointer" onClick={()=>{setEmojiOpen((current)=>!current)}}/>
+                <img src={emoji} alt=""  className="scale-[0.45] cursor-pointer xs:hidden" onClick={()=>{setEmojiOpen((current)=>!current)}}/>
                 <div className="absolute  bottom-[100%] right-0  ">
-                 <EmojiPicker  open={emojiOpen} onEmojiClick={handelEmojiClick}/>
+                 <EmojiPicker  open={emojiOpen} onEmojiClick={handelEmojiClick} />
                 </div> 
                 
             </div>

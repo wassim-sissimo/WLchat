@@ -13,7 +13,7 @@ export default {
 
       },
       screens:{
-        "max-640":{"max":"640px"}
+        "xs":{"max":"640px"}
       }
     },
   },

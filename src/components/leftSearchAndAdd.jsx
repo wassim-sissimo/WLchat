@@ -3,9 +3,11 @@ import { AddUser } from "./addUser"
 import search from "../assets/imgs/search.png"
 import minus from "../assets/imgs/minus.png"
 import plus from "../assets/imgs/plus.png"
+import { useChatStore } from "../useChatStor"
 
 
 export const LeftSaerchAndAdd=()=>{
+    const {chatOpen}=useChatStore()
     const [add,setAdd]=useState(false)
     const togel=()=>{
         setAdd((current)=>!current)
@@ -16,10 +18,10 @@ export const LeftSaerchAndAdd=()=>{
             <img src={search} alt="" className="w-4 h-4 object-cover " />
             <input type="text" placeholder="search" className="flex-[1] border-none bg-transparent outline-none text-white" />
         </div>
-        <div className="bg-inbg rounded-lg cursor-pointer" onClick={togel}>
+        <div className={`bg-inbg rounded-lg cursor-pointer ${chatOpen?"hidden":""}`} onClick={togel}>
             <img src={add?minus:plus} alt=""  className="scale-[0.4]"/>
         </div>
-        {add && <AddUser/> }
+        {add && <AddUser setAdd={setAdd} add={add}/> }
         
     </div>
  )
